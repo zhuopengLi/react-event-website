@@ -3,6 +3,7 @@
 @import './reset';
 
 $bg: 226 48% 11%;
+$toggle-hover-color: 350 44% 56%;
 
 html,
 * {
@@ -41,7 +42,7 @@ html {
     }
 
     main {
-        width: 100%;
+        width: 80%;
         display: grid;
         place-items: center;
 
@@ -63,6 +64,10 @@ html {
                 font-weight: var(--font-weight-3);
                 background: none;
                 color: white;
+
+                &:hover{
+                    background: hsl($toggle-hover-color);
+                }
             }
 
             p {
@@ -82,13 +87,18 @@ html {
         width: var(--size-12);
         padding: var(--size-1) var(--size-2);
         margin: var(--size-7);
-        border: none;
         border-radius: 9px;
-        border: 2px solid white;
+        border: 2px solid hsl(0, 0%, 100%, 0.72);
+        background: hsl(0, 0%, 100%, 0.72);
         cursor: pointer;
-        background: white;
         color: #292929;
         font-weight: var(--font-weight-5);
+
+        &:hover {
+            border-color: hsl($toggle-hover-color);
+            background: hsl($toggle-hover-color);
+            color: white;
+        }
     }
 
     footer {
@@ -117,6 +127,8 @@ html {
 
             &:hover {
                 text-decoration: underline;
+                border: none;
+                background: none;
             }
         }
     }
@@ -143,6 +155,8 @@ html {
         color: #292929;
         display: grid;
         place-items: center;
+
+        max-height: 80%;
 
         * {
             color: inherit;
@@ -190,6 +204,15 @@ html {
         margin: 10px auto;
         padding: 10px;
         font-size: var(--font-size-3);
+    }
+
+    @media (height <= 700px) {
+        label,
+        input,
+        select {
+            margin: 2px auto;
+            font-size: var(--font-size-0);
+        }
     }
 
     button {
